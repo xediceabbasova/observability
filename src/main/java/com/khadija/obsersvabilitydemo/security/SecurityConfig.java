@@ -30,7 +30,7 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService() {
         return new InMemoryUserDetailsManager(
                 User.withUsername("khadija")
-                        .password("{noop}password")
+                        .password("password")
                         .roles("USER")
                         .build()
         );

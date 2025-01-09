@@ -36,14 +36,14 @@ public class Application {
     @Bean
     @Observed(name = "posts.load-all-posts", contextualName = "post.find-all")
     CommandLineRunner commandLineRunner(JsonPlaceholderService jsonPlaceholderService, ObservationRegistry observationRegistry) {
-        return args -> {
+        return _ -> {
 //            Observation.createNotStarted("posts.load-all-posts", observationRegistry)
 //                    .lowCardinalityKeyValue("author", "Khadija")
 //                    .contextualName("post-service.find-all")
 //                    .observe(() -> {
-//                        List<Post> posts = jsonPlaceholderService.findAll();
-//                        logger.info("Posts: {}", posts.size());
-//                    });
+            List<Post> posts = jsonPlaceholderService.findAll();
+            logger.info("Posts: {}", posts.size());
         };
     }
+
 }
